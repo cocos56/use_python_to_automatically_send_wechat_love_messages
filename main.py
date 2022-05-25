@@ -22,11 +22,11 @@ def get_weather():
     """
     获取天气
     """
-    html = urlopen('https://weather.mipang.com/tianqi-2093')
-    html_read = bytes.decode(html.read()).replace("\n", "").replace("\r", "")
-    info = html_read.split("row row1")[1].split(">")[1].split("<")[0]
-    res = info + "\n咸阳"
-    return res
+    with urlopen('https://weather.mipang.com/tianqi-2093') as html:
+        html_read = bytes.decode(html.read()).replace("\n", "").replace("\r", "")
+        info = html_read.split("row row1")[1].split(">")[1].split("<")[0]
+        res = info + "\n咸阳"
+        return res
 
 
 def chat_who(who_name):
