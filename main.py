@@ -53,11 +53,11 @@ def sent_msg(msg):
 
 if __name__ == '__main__':
     YU = 0
-    lastDay = 0
+    last_day = 0
     while True:
         time.sleep(30)
         now = datetime.now()
-        if lastDay == now.day:
+        if last_day == now.day:
             continue
         if not now.hour == 7:
             continue
