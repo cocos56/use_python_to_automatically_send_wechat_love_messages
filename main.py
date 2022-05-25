@@ -13,16 +13,10 @@ def open_wechat():
 def get_weather():
     html = urlopen('https://weather.mipang.com/tianqi-2093')
     html_read = bytes.decode(html.read()).replace("\n", "").replace("\r", "")
-    print(html_read)
 
-    TIME = html_read.split("row row1")[1].split(">")[1].split("<")[0]
-    print(TIME)
-    # TMP = html_read.split("sab1")[1].split(">")[1].split("<")[0]
-    # WIND = html_read.split("sab2")[1].split(">")[1].split("<")[0]
-    #
-    # LOVE = TIME + "\n合肥" + WIND + "温度是" + TMP
-    LOVE = TIME + "\n咸阳"
-    return LOVE
+    info = html_read.split("row row1")[1].split(">")[1].split("<")[0]
+    res = info + "\n咸阳"
+    return res
 
 
 def chat_who(who_name):
