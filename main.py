@@ -1,3 +1,8 @@
+"""
+自动向女朋友的微信发送天气预报
+"""
+
+
 import time
 from urllib.request import urlopen
 
@@ -37,13 +42,10 @@ def sent_msg(msg):
 if __name__ == '__main__':
     YU = 0
     while True:
-        NOW = str(time.strftime('%H%M', time.localtime()))
-        print(NOW)
-        if '10' in NOW:
-            YU += 1
-            open_wechat()
-            chat_who("慧宝")
-            sent_msg(get_weather())
-            sent_msg("爱你（づ￣3￣）づ╭❤～")
-            print("又过去1天：合计守护", YU, "天")
-            time.sleep(86000)
+        YU += 1
+        open_wechat()
+        chat_who("慧宝")
+        sent_msg(get_weather())
+        sent_msg("爱你（づ￣3￣）づ╭❤～")
+        print("又过去1天：合计守护", YU, "天")
+        time.sleep(86000)
