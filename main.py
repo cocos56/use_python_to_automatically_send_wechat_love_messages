@@ -11,20 +11,29 @@ import pyperclip
 
 
 def open_wechat():
+    """
+    使用快捷键打开微信界面
+    """
     pyautogui.hotkey('ctrl', 'alt', 'w')
     time.sleep(1)
 
 
 def get_weather():
+    """
+    获取天气
+    """
     html = urlopen('https://weather.mipang.com/tianqi-2093')
     html_read = bytes.decode(html.read()).replace("\n", "").replace("\r", "")
-
     info = html_read.split("row row1")[1].split(">")[1].split("<")[0]
     res = info + "\n咸阳"
     return res
 
 
 def chat_who(who_name):
+    """
+    搜索联系人并进入与目标联系人的聊天界面
+    :param who_name: 联系人备注
+    """
     pyautogui.hotkey("ctrl", "f")
     pyperclip.copy(who_name)
     pyautogui.hotkey('ctrl', 'v')
@@ -34,6 +43,11 @@ def chat_who(who_name):
 
 
 def sent_msg(msg):
+    """
+    发送信息
+    :param msg: 待发送的信息
+    :return:
+    """
     pyperclip.copy(str(msg))
     pyautogui.hotkey('ctrl', 'v')
     pyautogui.hotkey('Enter')
