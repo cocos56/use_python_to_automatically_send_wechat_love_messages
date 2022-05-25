@@ -52,7 +52,8 @@ def sent_msg(msg):
 
 
 if __name__ == '__main__':
-    YU = 0
+    # pylint: disable=C0103
+    yu = 0
     last_day = 0
     while True:
         time.sleep(30)
@@ -61,10 +62,10 @@ if __name__ == '__main__':
             continue
         if not now.hour == 7:
             continue
-        YU += 1
+        yu += 1
         open_wechat()
         chat_who("慧宝")
         sent_msg(get_weather())
         sent_msg("爱你（づ￣3￣）づ╭❤～")
-        print("又过去1天：合计守护", YU, "天")
+        print("又过去1天：合计守护", yu, "天")
         lastDay = now.day
