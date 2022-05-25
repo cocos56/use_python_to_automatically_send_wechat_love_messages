@@ -1,9 +1,8 @@
 """
 自动向女朋友的微信发送天气预报
 """
-
-
 import time
+from datetime import datetime
 from urllib.request import urlopen
 
 import pyautogui
@@ -20,7 +19,7 @@ def open_wechat():
 
 def get_weather():
     """
-    获取天气
+    获取天气信息
     """
     with urlopen('https://weather.mipang.com/tianqi-2093') as html:
         html_read = bytes.decode(html.read()).replace("\n", "").replace("\r", "")
@@ -46,7 +45,6 @@ def sent_msg(msg):
     """
     发送信息
     :param msg: 待发送的信息
-    :return:
     """
     pyperclip.copy(str(msg))
     pyautogui.hotkey('ctrl', 'v')
@@ -55,11 +53,18 @@ def sent_msg(msg):
 
 if __name__ == '__main__':
     YU = 0
+    lastDay = 0
     while True:
+        time.sleep(30)
+        now = datetime.now()
+        if lastDay == now.day:
+            continue
+        if not now.hour == 7:
+            continue
         YU += 1
         open_wechat()
         chat_who("慧宝")
         sent_msg(get_weather())
         sent_msg("爱你（づ￣3￣）づ╭❤～")
         print("又过去1天：合计守护", YU, "天")
-        time.sleep(86000)
+        lastDay = now.day
