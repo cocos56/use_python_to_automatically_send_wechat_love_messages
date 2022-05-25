@@ -1,2 +1,0 @@
-# use_python_to_automatically_send_wechat_love_messages
-使用Python自动向女朋友在发送微信爱情信息
