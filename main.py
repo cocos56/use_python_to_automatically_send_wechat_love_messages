@@ -40,12 +40,12 @@ def sent_msg(name, msg):
     pyautogui.hotkey('Enter')
     time.sleep(1)
     # 粘贴并发送信息
-    if not type(msg) == tuple:
+    if not isinstance(msg, tuple):
         msg = tuple([msg])
     for m in msg:
-        if type(m) == str:
+        if isinstance(m, str):
             pyperclip.copy(m)
-        elif type(m) == list:
+        elif isinstance(m, list):
             pyperclip.copy('\n'.join(m))
         pyautogui.hotkey('ctrl', 'v')
         pyautogui.hotkey('Enter')
@@ -64,9 +64,9 @@ if __name__ == '__main__':
         now = datetime.now()
         if last_day == now.day:
             continue
-        if not now.hour == 9:
+        if not now.hour == 7:
             continue
-        if not now.minute == 12:
+        if not now.minute == 10:
             continue
         yu += 1
         sent_msg("18739776523", ([get_weather(2093), '咸阳'], "爱你（づ￣3￣）づ╭❤～"))
