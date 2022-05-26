@@ -69,6 +69,6 @@ if __name__ == '__main__':
         if not now.minute == 10:
             continue
         yu += 1
-        sent_msg("18739776523", ([get_weather(2093), '咸阳'], "爱你（づ￣3￣）づ╭❤～"))
+        sent_msg("慧宝", ([get_weather(2093), '咸阳'], "爱你（づ￣3￣）づ╭❤～"))
         print("又过去1天：合计守护", yu, "天")
         last_day = now.day
