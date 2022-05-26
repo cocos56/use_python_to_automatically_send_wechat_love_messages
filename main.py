@@ -42,11 +42,11 @@ def sent_msg(name, msg):
     # 粘贴并发送信息
     if not isinstance(msg, tuple):
         msg = tuple([msg])
-    for m in msg:
-        if isinstance(m, str):
-            pyperclip.copy(m)
-        elif isinstance(m, list):
-            pyperclip.copy('\n'.join(m))
+    for i in msg:
+        if isinstance(i, str):
+            pyperclip.copy(i)
+        elif isinstance(i, list):
+            pyperclip.copy('\n'.join(i))
         pyautogui.hotkey('ctrl', 'v')
         pyautogui.hotkey('Enter')
     time.sleep(1)
