@@ -2,7 +2,6 @@
 自动向女朋友的微信发送天气预报
 """
 import time
-from datetime import datetime
 from urllib.request import urlopen
 from urllib.error import HTTPError
 
@@ -57,18 +56,5 @@ def sent_msg(name, msg):
 
 if __name__ == '__main__':
     # pylint: disable=C0103
-    yu = 0
-    last_day = 0
-    while True:
-        time.sleep(1)
-        now = datetime.now()
-        if last_day == now.day:
-            continue
-        if not now.hour == 7:
-            continue
-        if not now.minute == 10:
-            continue
-        yu += 1
-        sent_msg("慧宝", ([get_weather(2093), '咸阳'], "爱你（づ￣3￣）づ╭❤～"))
-        print("又过去1天：合计守护", yu, "天")
-        last_day = now.day
+    sent_msg("18739776523", [get_weather(6540), '淮阳'])
+    sent_msg("慧宝", ([get_weather(2093), '咸阳'], "爱你（づ￣3￣）づ╭❤～"))
