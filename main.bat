@@ -1,1 +1,0 @@
-python D:\0\G\use_python_to_automatically_send_wechat_love_messages\main.py
