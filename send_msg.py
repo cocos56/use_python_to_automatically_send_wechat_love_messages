@@ -1,5 +1,5 @@
 """
-自动向女朋友的微信发送天气预报
+发送信息
 """
 import time
 from urllib.request import urlopen
@@ -52,4 +52,3 @@ def send_msg(name, msg):
     # 关闭微信
     pyautogui.hotkey('alt', 'f4')
     time.sleep(1)
-
