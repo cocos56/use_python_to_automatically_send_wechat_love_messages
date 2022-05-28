@@ -15,4 +15,8 @@ pet_names = [
 
 
 def get_pet_name():
+    """
+    获取爱称
+    :return: 爱称
+    """
     return get_random_item(pet_names)

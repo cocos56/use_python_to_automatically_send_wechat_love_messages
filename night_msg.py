@@ -1,5 +1,5 @@
 """
-晚安用语
+晚安文案
 """
 from base import get_random_item
 
@@ -11,4 +11,8 @@ night_messages = [
 
 
 def get_night_msg():
+    """
+    获取晚安文案
+    :return: 晚安文案
+    """
     return get_random_item(night_messages)
