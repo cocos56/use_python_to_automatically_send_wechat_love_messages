@@ -1,7 +1,7 @@
 """
 发送信息
 """
-import time
+from time import sleep
 from urllib.request import urlopen
 from urllib.error import HTTPError
 
@@ -18,7 +18,7 @@ def get_weather(area_code):
             html_read = bytes.decode(html.read()).replace('\n', '').replace('\r', '')
             return html_read.split('row row1')[1].split('>')[1].split('<')[0]
     except HTTPError:
-        time.sleep(1)
+        sleep(1)
         return get_weather(area_code)
 
 
@@ -30,14 +30,14 @@ def send_msg(name, msg):
     """
     # 打开微信
     pyautogui.hotkey('ctrl', 'alt', 'w')
-    time.sleep(1)
+    sleep(1)
     # 查找联系人
     pyautogui.hotkey('ctrl', 'f')
     pyperclip.copy(name)
     pyautogui.hotkey('ctrl', 'v')
-    time.sleep(1)
+    sleep(1)
     pyautogui.hotkey('Enter')
-    time.sleep(1)
+    sleep(1)
     # 粘贴并发送信息
     if not isinstance(msg, list):
         msg = [msg]
@@ -48,7 +48,7 @@ def send_msg(name, msg):
             pyperclip.copy('\n'.join(i))
         pyautogui.hotkey('ctrl', 'v')
         pyautogui.hotkey('Enter')
-    time.sleep(1)
+    sleep(1)
     # 关闭微信
     pyautogui.hotkey('alt', 'f4')
-    time.sleep(1)
+    sleep(1)
